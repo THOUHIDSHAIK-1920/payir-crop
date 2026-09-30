@@ -59,8 +59,8 @@ export const LeafletMap: React.FC<LeafletMapProps> = ({ selectedField, status })
       >
         <ChangeView center={centerPosition} zoom={13} />
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={centerPosition} icon={cropIcon}>
           <Popup>
@@ -70,16 +70,16 @@ export const LeafletMap: React.FC<LeafletMapProps> = ({ selectedField, status })
               <div className="mt-2 pt-2 border-t border-slate-200 flex items-center justify-between gap-2">
                 <span className="text-[11px] font-semibold text-slate-500">Crop: {selectedField.crop_type}</span>
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                  status === 'healthy' ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'
+                  status === 'healthy'? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'
                 }`}>
-                  {status === 'healthy' ? 'HEALTHY' : 'ALERT'}
+                  {status === 'healthy'? 'HEALTHY' : 'ALERT'}
                 </span>
               </div>
             </div>
           </Popup>
         </Marker>
       </MapContainer>
-      
+
       {/* Map Header Overlay */}
       <div className="absolute top-3 left-3 z-[400] bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-700/60 text-xs font-semibold text-emerald-400 flex items-center gap-2 shadow-lg">
         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
